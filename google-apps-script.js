@@ -93,7 +93,7 @@ function getOrCreateSheet(ss, name, headers) {
     sheet = ss.insertSheet(name);
     var headerRange = sheet.getRange(1, 1, 1, headers.length);
     headerRange.setValues([headers]);
-    headerRange.setBackground("#f97316");
+    headerRange.setBackground("#0866ff");
     headerRange.setFontColor("#ffffff");
     headerRange.setFontWeight("bold");
     headerRange.setFontFamily("Arial");

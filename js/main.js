@@ -474,7 +474,7 @@ function initBlogFilters() {
 
 // ─────────────────────────────────────────────────────────────
 // HERO PARTICLE BACKGROUND
-// Canvas API — no libraries. 60 glowing dots in orange shades,
+// Canvas API — no libraries. 60 glowing dots in blue shades,
 // connecting lines, mouse repulsion, text-zone avoidance.
 // ─────────────────────────────────────────────────────────────
 function initHeroParticles() {
@@ -492,12 +492,12 @@ function initHeroParticles() {
   const TEXT_PAD        = 55;   // px – soft padding around the text zone
   const MAX_SPEED       = 2.2;  // px/frame cap
 
-  // Monochromatic orange palette
+  // Monochromatic blue palette
   const PALETTE = [
-    { r: 194, g: 65,  b: 12 },   // deep orange
-    { r: 232, g: 93,  b: 4 },    // tangerine
-    { r: 255, g: 159, b: 67 },   // orange-light
-    { r: 255, g: 129, b: 38 },   // neon-orange light
+    { r: 5,   g: 43,  b: 134 },  // deep navy
+    { r: 8,   g: 102, b: 255 },  // primary blue
+    { r: 56,  g: 189, b: 248 },  // sky blue
+    { r: 0,   g: 184, b: 238 },  // cyan
   ];
 
   /* ── State ──────────────────────────────────────────── */
@@ -1166,15 +1166,15 @@ function isTooFast(formStartTime) {
       warned = true;
       console.log(
         "%c\u26A0\uFE0F STOP!",
-        "color:#f97316;font-size:48px;font-weight:900;"
+        "color:#0866ff;font-size:48px;font-weight:900;"
       );
       console.log(
         "%cThis is a browser feature for developers. Do not paste or run any code here — it could compromise your account or data.",
-        "color:#c2410c;font-size:16px;"
+        "color:#052b86;font-size:16px;"
       );
       console.log(
         "%cVisionX Coders | Islamabad, Pakistan | iumer633@gmail.com",
-        "color:#6b4a3a;font-size:12px;"
+        "color:#052b86;font-size:12px;"
       );
     }
   }
