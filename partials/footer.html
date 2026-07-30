@@ -1,0 +1,459 @@
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img class="brand-logo-image" src="images/visionx-coders-logo.png" alt="VisionX Coders" />
+          <span class="footer-logo-text">VisionX <span>Coders</span></span>
+        </div>
+        <p>
+          The AI-first coding school for kids ages 7–14. Powered by VisionX
+          Intelligence — where young minds meet the future of technology.
+        </p>
+        <div class="footer-socials">
+          <a href="https://wa.me/923295050039" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">wa</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Programs</h5>
+        <ul>
+          <li><a href="course-detail-ai-explorers.html">AI Explorers (7–10)</a></li>
+          <li><a href="course-detail-code-champions.html">Code Champions (11–14)</a></li>
+          <li><a href="courses.html">All Courses</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Skills</h5>
+        <ul>
+          <li><a href="courses.html#skills">Scratch Coding</a></li>
+          <li><a href="courses.html#skills">Python</a></li>
+          <li><a href="courses.html#skills">AI &amp; Machine Learning</a></li>
+          <li><a href="courses.html#skills">Game Development</a></li>
+          <li><a href="courses.html#skills">Web Development</a></li>
+          <li><a href="courses.html#skills">3D Modeling</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact Us</h5>
+        <div class="footer-contact-item">
+          <span>📞</span
+          ><a
+            href="tel:+923295050039"
+            style="color: #94a3b8; text-decoration: none"
+            >+92 329 505 0039</a
+          >
+        </div>
+        <div class="footer-contact-item">
+          <span>✉</span
+          ><a
+            href="mailto:iumer633@gmail.com"
+            style="color: #94a3b8; text-decoration: none"
+            >iumer633@gmail.com</a
+          >
+        </div>
+        <div class="footer-contact-item">
+          <span>💬</span
+          ><a
+            href="https://wa.me/923295050039"
+            style="color: #94a3b8; text-decoration: none"
+            >WhatsApp Us</a
+          >
+        </div>
+      </div>
+    </div>
+    
+    <!-- ── Newsletter Signup Strip ──────────────────────────── -->
+    <div class="footer-newsletter">
+      <div class="footer-nl-left">
+        <h4 class="footer-nl-title">Stay in the Loop ✨</h4>
+        <p class="footer-nl-desc">
+          Get tips, updates &amp; early access to new VisionX Coders programs.
+          No spam, unsubscribe anytime.
+        </p>
+      </div>
+      <div class="footer-nl-right">
+        <!-- Success state (hidden by default) -->
+        <div class="nl-success" id="nl-success" hidden>
+          <div class="nl-success-icon">
+            <svg viewBox="0 0 52 52" aria-hidden="true">
+              <circle class="nl-check-circle" cx="26" cy="26" r="25" fill="none"/>
+              <path class="nl-check-tick"   fill="none" stroke-linecap="round" stroke-linejoin="round" d="M14 27l8 8 16-16"/>
+            </svg>
+          </div>
+          <div class="nl-success-text">
+            <strong>You&rsquo;re in!</strong>
+            <span>Check your inbox for a welcome email.</span>
+          </div>
+        </div>
+
+        <!-- Form state -->
+        <form
+          class="nl-form"
+          id="nl-form"
+          novalidate
+          aria-label="Newsletter signup"
+        >
+          <!-- SECURITY: Honeypot — bots fill this, real users don't see it -->
+          <input
+            type="text"
+            name="website"
+            autocomplete="off"
+            tabindex="-1"
+            aria-hidden="true"
+            style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;"
+          />
+          <!-- SECURITY: Form timestamp for bot timing detection -->
+          <input type="hidden" name="form_time" id="nl-form-time" value=""/>
+          <div class="nl-input-wrap">
+            <input
+              id="nl-email"
+              class="nl-input"
+              type="email"
+              name="user_email"
+              placeholder="Enter your email address"
+              autocomplete="email"
+              aria-label="Email address for newsletter"
+              required
+            />
+            <button
+              id="nl-submit"
+              class="nl-submit"
+              type="submit"
+              aria-label="Subscribe to newsletter"
+            >
+              <!-- Default label -->
+              <span class="nl-btn-text">Go</span>
+              <!-- Loading spinner (hidden by default) -->
+              <span class="nl-spinner" hidden aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="31.4 31.4" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <!-- Error message (hidden by default) -->
+          <p class="nl-error" id="nl-error" role="alert" hidden></p>
+        </form>
+      </div>
+    </div>    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <div class="footer-vx">
+        &copy; 2026 <span>VisionX Coders</span> &middot; Islamabad, Pakistan &middot; <span>iumer633@gmail.com</span>
+      </div>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a
+        ><a href="terms.html#cancellation">Refund Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     WhatsApp Chat Widget
+     Trigger button → popup bubble with branded header,
+     WhatsApp-style message, pre-filled CTA.
+     Managed by initWaWidget() in main.js.
+════════════════════════════════════════════════════════════ -->
+<div id="wa-widget" class="wa-widget" role="complementary" aria-label="WhatsApp Chat">
+
+  <!-- Floating green trigger button -->
+  <button
+    id="wa-trigger"
+    class="wa-trigger"
+    type="button"
+    aria-label="Open WhatsApp chat"
+    aria-expanded="false"
+    aria-controls="wa-bubble"
+  >
+    <svg class="wa-trigger-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <!-- Notification badge (hides after first open) -->
+    <span class="wa-badge" aria-hidden="true">1</span>
+    <!-- Pulsing attention ring -->
+    <span class="wa-trigger-ring" aria-hidden="true"></span>
+  </button>
+
+  <!-- Chat popup bubble (hidden by default, toggled by JS) -->
+  <div
+    id="wa-bubble"
+    class="wa-bubble"
+    role="dialog"
+    aria-label="Chat with VisionX Coders on WhatsApp"
+    hidden
+  >
+    <!-- ── Header ─────────────────────────────────────────── -->
+    <div class="wa-bubble-header">
+      <div class="wa-bubble-brand">
+        <div class="wa-brand-logo">VX</div>
+        <div class="wa-brand-info">
+          <div class="wa-brand-name">VisionX Coders</div>
+          <div class="wa-brand-status">
+            <span class="wa-status-dot" aria-hidden="true"></span>
+            Typically replies within minutes
+          </div>
+        </div>
+      </div>
+      <button
+        id="wa-close"
+        class="wa-bubble-close"
+        type="button"
+        aria-label="Close chat"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- ── Chat body ──────────────────────────────────────── -->
+    <div class="wa-bubble-body">
+      <!-- Subtle WhatsApp-style tiled background -->
+      <div class="wa-body-pattern" aria-hidden="true"></div>
+      <!-- Agent message bubble -->
+      <div class="wa-message-row">
+        <div class="wa-agent-avatar" aria-hidden="true">VX</div>
+        <div class="wa-message-group">
+          <div class="wa-message-text">
+            &#128075; Hi! Welcome to <strong>VisionX Coders</strong>.<br>
+            We&rsquo;d love to help your child unlock their AI &amp; coding superpowers!
+          </div>
+          <span class="wa-message-time">Just now &nbsp;&#10003;&#10003;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Footer / CTA ───────────────────────────────────── -->
+    <div class="wa-bubble-footer">
+      <p class="wa-footer-label">Send us a message:</p>
+      <!-- Pre-written message display -->
+      <div class="wa-preset-msg">
+        Hi! I&#39;m interested in VisionX Coders for my child &#128075;
+      </div>
+      <!-- Opens wa.me with the pre-filled message -->
+      <a
+        id="wa-start-btn"
+        class="wa-start-btn"
+        href="https://wa.me/923295050039?text=Hi!%20I'm%20interested%20in%20VisionX%20Coders%20for%20my%20child%20%F0%9F%91%8B"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Start WhatsApp chat with VisionX Coders"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Start Chat
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="trial-modal" id="trial-modal" aria-hidden="true">
+  <div class="trial-modal__overlay" data-modal-close></div>
+  <div
+    class="trial-modal__dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="trial-modal-title"
+  >
+    <button
+      class="trial-modal__close"
+      type="button"
+      aria-label="Close trial form"
+      data-modal-close
+    >
+      &times;
+    </button>
+    <div class="trial-modal__header">
+      <span class="section-label">Book Free Trial</span>
+      <h2 id="trial-modal-title" class="trial-modal__title">
+        Reserve a Free Trial Class
+      </h2>
+      <p class="trial-modal__subtitle">
+        Tell us a few details and we'll help you book the right class for your
+        child.
+      </p>
+    </div>
+    <form class="trial-form" novalidate>
+        <!-- SECURITY: Honeypot field -->
+        <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;"/>
+        <input type="hidden" name="form_time" id="trial-form-time" value=""/>
+      <div class="trial-form__grid">
+        <label class="trial-field">
+          <span>Child's Name</span>
+          <input
+            type="text"
+            name="childName"
+            required
+            minlength="2"
+            placeholder="Enter child's name"
+          />
+          <small class="trial-field__error"></small>
+        </label>
+        <label class="trial-field">
+          <span>Parent's Name</span>
+          <input
+            type="text"
+            name="parentName"
+            required
+            minlength="2"
+            placeholder="Enter parent's name"
+          />
+          <small class="trial-field__error"></small>
+        </label>
+        <label class="trial-field">
+          <span>Email</span>
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="you@example.com"
+          />
+          <small class="trial-field__error"></small>
+        </label>
+        <label class="trial-field">
+          <span>Phone Number (WhatsApp)</span>
+          <input
+            type="tel"
+            name="phone"
+            required
+            pattern="[0-9+\-()\\s]{7,}"
+            placeholder="+92 329 505 0039"
+          />
+          <small class="trial-field__error"></small>
+        </label>
+        <label class="trial-field">
+          <span>Child's Age</span>
+          <select name="age" required>
+            <option value="">Select age</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+          </select>
+          <small class="trial-field__error"></small>
+        </label>
+        <label class="trial-field">
+          <span>Preferred Program</span>
+          <select name="program" required>
+            <option value="">Select program</option>
+            <option>AI Explorers (Ages 7-10)</option>
+            <option>Code Champions (Ages 11-14)</option>
+            <option>Not sure yet</option>
+          </select>
+          <small class="trial-field__error"></small>
+        </label>
+        <label class="trial-field trial-field--full">
+          <span>Preferred Schedule</span>
+          <select name="timeslot" required>
+            <option value="">Select schedule</option>
+            <option>Weekdays (Mon-Fri, 1hr/day)</option>
+            <option>Weekends (Fri-Sun, 1hr 45min/session)</option>
+          </select>
+          <small class="trial-field__error"></small>
+        </label>
+      </div>
+      <div class="trial-form__message" aria-live="polite"></div>
+      <button class="trial-form__submit" type="submit">Book Free Trial</button>
+    </form>
+  </div>
+</div>
+
+<!-- COOKIE CONSENT BANNER + PREFERENCES MODAL -->
+<div id="cookie-banner" class="ck-banner" role="region" aria-label="Cookie consent" aria-live="polite" hidden>
+  <div class="ck-banner-inner">
+    <div class="ck-banner-left">
+      <div class="ck-logo">
+        <div class="ck-logo-icon">VX</div>
+        <span class="ck-logo-text">VisionX <span>Coders</span></span>
+      </div>
+      <p class="ck-message">
+        We use cookies to personalise content, analyse traffic, and improve your experience.
+        By clicking <strong>Accept All</strong> you agree to our use of cookies.
+        <a href="privacy.html" class="ck-link">Privacy Policy</a> &middot; <a href="cookies.html" class="ck-link">Cookie Policy</a>
+      </p>
+    </div>
+    <div class="ck-banner-actions">
+      <button id="cookie-manage" class="ck-btn ck-btn--outline" type="button" aria-haspopup="dialog">Manage Preferences</button>
+      <button id="cookie-accept-all" class="ck-btn ck-btn--primary" type="button">Accept All</button>
+    </div>
+    <button id="cookie-banner-close" class="ck-banner-close" type="button" aria-label="Close cookie banner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+</div>
+
+<div id="cookie-modal" class="ck-modal" role="dialog" aria-modal="true" aria-labelledby="ck-modal-title" hidden>
+  <div class="ck-modal-overlay" id="cookie-modal-overlay"></div>
+  <div class="ck-modal-dialog">
+    <div class="ck-modal-header">
+      <div class="ck-modal-title-row">
+        <div class="ck-logo ck-logo--sm">
+          <div class="ck-logo-icon">VX</div>
+          <span class="ck-logo-text">VisionX <span>Coders</span></span>
+        </div>
+        <h2 id="ck-modal-title" class="ck-modal-title">Cookie Preferences</h2>
+      </div>
+      <button id="cookie-modal-close" class="ck-modal-close" type="button" aria-label="Close cookie preferences">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="ck-modal-body">
+      <p class="ck-modal-desc">Choose which cookies you allow us to use. Essential cookies cannot be disabled as they are required for the website to function.</p>
+      <div class="ck-row">
+        <div class="ck-row-info">
+          <div class="ck-row-label">Essential Cookies <span class="ck-badge ck-badge--required">Required</span></div>
+          <p class="ck-row-desc">Necessary for the website to function. These cannot be disabled and include session management, security, and accessibility.</p>
+        </div>
+        <label class="ck-toggle ck-toggle--locked" aria-label="Essential cookies always on">
+          <input type="checkbox" id="toggle-essential" checked disabled>
+          <span class="ck-slider"></span>
+        </label>
+      </div>
+      <div class="ck-row">
+        <div class="ck-row-info">
+          <div class="ck-row-label">Analytics Cookies</div>
+          <p class="ck-row-desc">Help us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+        </div>
+        <label class="ck-toggle" aria-label="Analytics cookies">
+          <input type="checkbox" id="toggle-analytics">
+          <span class="ck-slider"></span>
+        </label>
+      </div>
+      <div class="ck-row">
+        <div class="ck-row-info">
+          <div class="ck-row-label">Marketing Cookies</div>
+          <p class="ck-row-desc">Used to track visitors across websites to display relevant advertisements and measure campaign effectiveness.</p>
+        </div>
+        <label class="ck-toggle" aria-label="Marketing cookies">
+          <input type="checkbox" id="toggle-marketing">
+          <span class="ck-slider"></span>
+        </label>
+      </div>
+      <div class="ck-row">
+        <div class="ck-row-info">
+          <div class="ck-row-label">Functional Cookies</div>
+          <p class="ck-row-desc">Enable enhanced functionality such as remembering your language preference and saved items.</p>
+        </div>
+        <label class="ck-toggle" aria-label="Functional cookies">
+          <input type="checkbox" id="toggle-functional">
+          <span class="ck-slider"></span>
+        </label>
+      </div>
+    </div>
+    <div class="ck-modal-footer">
+      <button id="cookie-modal-cancel" class="ck-btn ck-btn--ghost" type="button">Cancel</button>
+      <button id="cookie-modal-accept-all" class="ck-btn ck-btn--outline" type="button">Accept All</button>
+      <button id="cookie-save-prefs" class="ck-btn ck-btn--primary" type="button">Save Preferences</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+

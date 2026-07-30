@@ -1,0 +1,12 @@
+# VisionX Coders — robots.txt
+# Learn more: https://developers.google.com/search/docs/advanced/robots/intro
+
+User-agent: *
+Allow: /
+
+# Disallow backup / temp files
+Disallow: /partials/
+Disallow: /*.bak
+Disallow: /*_backup*
+
+Sitemap: https://visionxcoders.com/sitemap.xml
