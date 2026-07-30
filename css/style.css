@@ -3927,7 +3927,7 @@ html.dark .navbar .hamburger span { background: var(--white); }
 .steps-bg { background: linear-gradient(135deg, #ffffff, var(--orange-soft)) !important; }
 .blog-hero, .about-hero, .contact-hero,
 .team-card__back, .pricing-card--featured {
-  background: linear-gradient(135deg, #052b86 0%, #0877f9 55%, #38bdf8 100%) !important;
+  background: linear-gradient(135deg, #0b4fc7 0%, #0877f9 55%, #38bdf8 100%) !important;
 }
 
 .footer-nl-left {
@@ -4182,9 +4182,9 @@ nav {
 .hero {
   padding: 106px 24px 112px;
   background:
-    radial-gradient(circle at 88% 12%, rgba(0, 184, 238, 0.28), transparent 24rem),
-    radial-gradient(circle at 58% 92%, rgba(8, 102, 255, 0.30), transparent 25rem),
-    linear-gradient(135deg, #041b60 0%, var(--navy) 46%, #063fae 100%);
+    radial-gradient(circle at 88% 12%, rgba(0, 184, 238, 0.32), transparent 24rem),
+    radial-gradient(circle at 58% 92%, rgba(56, 189, 248, 0.28), transparent 25rem),
+    linear-gradient(135deg, #0b4fc7 0%, #0877f9 50%, #12a8e8 100%);
 }
 .hero-badge {
   background: rgba(0, 184, 238, 0.14);
@@ -4301,6 +4301,11 @@ nav {
   .brand-logo-image { width: 38px; height: 38px; }
   .logo-text { font-size: 16px; }
   .hero { padding: 74px 20px 84px; }
+  .hero h1 {
+    font-size: clamp(26px, 8.5vw, 40px) !important;
+    letter-spacing: -0.02em !important;
+    overflow-wrap: break-word;
+  }
   .hero-proof { gap: 9px; }
   .hero-proof span { width: 100%; }
   .program-finder { padding: 44px 20px; }
