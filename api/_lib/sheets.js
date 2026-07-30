@@ -1,65 +1,28 @@
-const { google } = require("googleapis");
+// Writes rows via the Google Apps Script Web App deployed from
+// google-apps-script.js (see that file for setup instructions).
+// This is a server-to-server call — the public form never talks to
+// this URL directly, only our own /api/* endpoints do, after their
+// own validation and spam checks have already run.
 
-function loadCredentials() {
-  const raw = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
-  if (!raw) throw new Error("GOOGLE_SERVICE_ACCOUNT_KEY is not set");
-  // Accept either a raw JSON string or a base64-encoded JSON string.
-  const jsonStr = raw.trim().startsWith("{") ? raw : Buffer.from(raw, "base64").toString("utf8");
-  return JSON.parse(jsonStr);
+async function submitToSheet(type, payload) {
+  const url = process.env.GOOGLE_SHEETS_WEBAPP_URL;
+  if (!url) throw new Error("GOOGLE_SHEETS_WEBAPP_URL is not set");
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ type, ...payload }),
+    redirect: "follow",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Apps Script responded with HTTP ${response.status}`);
+  }
+
+  const json = await response.json();
+  if (json.status !== "success") {
+    throw new Error(json.message || "Apps Script reported failure");
+  }
 }
 
-async function getSheetsClient() {
-  const credentials = loadCredentials();
-  const auth = new google.auth.GoogleAuth({
-    credentials,
-    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-  });
-  const client = await auth.getClient();
-  return google.sheets({ version: "v4", auth: client });
-}
-
-const HEADERS = {
-  "Trial Bookings": [
-    "Timestamp", "Type", "Child Name", "Parent Name",
-    "Email", "Phone", "Child Age", "Program", "Preferred Schedule", "Status",
-  ],
-  "Contact Inquiries": [
-    "Timestamp", "Type", "Name", "Email", "Phone", "Subject", "Message", "Status",
-  ],
-  "Newsletter Subscribers": ["Timestamp", "Email"],
-};
-
-async function ensureSheetExists(sheets, spreadsheetId, tabName) {
-  const meta = await sheets.spreadsheets.get({ spreadsheetId });
-  const exists = meta.data.sheets.some((s) => s.properties.title === tabName);
-  if (exists) return;
-
-  await sheets.spreadsheets.batchUpdate({
-    spreadsheetId,
-    requestBody: { requests: [{ addSheet: { properties: { title: tabName } } }] },
-  });
-  await sheets.spreadsheets.values.update({
-    spreadsheetId,
-    range: `${tabName}!A1`,
-    valueInputOption: "RAW",
-    requestBody: { values: [HEADERS[tabName]] },
-  });
-}
-
-async function appendRow(tabName, row) {
-  const spreadsheetId = process.env.GOOGLE_SHEET_ID;
-  if (!spreadsheetId) throw new Error("GOOGLE_SHEET_ID is not set");
-
-  const sheets = await getSheetsClient();
-  await ensureSheetExists(sheets, spreadsheetId, tabName);
-
-  await sheets.spreadsheets.values.append({
-    spreadsheetId,
-    range: `${tabName}!A1`,
-    valueInputOption: "RAW",
-    insertDataOption: "INSERT_ROWS",
-    requestBody: { values: [row] },
-  });
-}
-
-module.exports = { appendRow };
+module.exports = { submitToSheet };

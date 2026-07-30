@@ -1,5 +1,5 @@
 const { validateTrialBooking, sheetSafe, checkOrigin } = require("./_lib/validate");
-const { appendRow } = require("./_lib/sheets");
+const { submitToSheet } = require("./_lib/sheets");
 const { sendOwnerBookingNotification, sendParentBookingConfirmation } = require("./_lib/email");
 
 module.exports = async (req, res) => {
@@ -40,10 +40,7 @@ module.exports = async (req, res) => {
   };
 
   try {
-    await appendRow("Trial Bookings", [
-      data.timestamp, "Trial Booking", data.childName, data.parentName,
-      data.email, data.phone, data.age, data.program, data.timeslot, "New",
-    ]);
+    await submitToSheet("trial-booking", data);
   } catch (err) {
     console.error("[book-trial] Sheets append failed:", err);
     res.status(500).json({ status: "error", message: "Could not save your booking. Please WhatsApp us directly at +92 329 505 0039." });

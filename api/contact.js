@@ -1,5 +1,5 @@
 const { validateContact, sheetSafe, checkOrigin } = require("./_lib/validate");
-const { appendRow } = require("./_lib/sheets");
+const { submitToSheet } = require("./_lib/sheets");
 const { sendOwnerContactNotification, sendParentContactConfirmation } = require("./_lib/email");
 
 module.exports = async (req, res) => {
@@ -37,10 +37,7 @@ module.exports = async (req, res) => {
   };
 
   try {
-    await appendRow("Contact Inquiries", [
-      data.timestamp, "Contact Inquiry", data.name, data.email,
-      data.phone, data.subject, data.message, "New",
-    ]);
+    await submitToSheet("contact-inquiry", data);
   } catch (err) {
     console.error("[contact] Sheets append failed:", err);
     res.status(500).json({ status: "error", message: "Could not send your message. Please email us directly at iumer633@gmail.com." });

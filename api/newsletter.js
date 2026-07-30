@@ -1,5 +1,5 @@
-const { validateNewsletter, sheetSafe, checkOrigin } = require("./_lib/validate");
-const { appendRow } = require("./_lib/sheets");
+const { validateNewsletter, checkOrigin } = require("./_lib/validate");
+const { submitToSheet } = require("./_lib/sheets");
 const { sendNewsletterConfirmation } = require("./_lib/email");
 
 module.exports = async (req, res) => {
@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
   const timestamp = new Date().toLocaleString("en-PK", { timeZone: "Asia/Karachi" });
 
   try {
-    await appendRow("Newsletter Subscribers", [timestamp, sheetSafe(email)]);
+    await submitToSheet("newsletter-signup", { email, timestamp });
   } catch (err) {
     console.error("[newsletter] Sheets append failed:", err);
     // Not fatal — still try to send the confirmation email.
