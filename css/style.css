@@ -4433,15 +4433,15 @@ html.dark .pf-hero { background: var(--n900); }
   width: 100%;
   height: 560px;
   border-radius: 22px;
-  background: linear-gradient(160deg, var(--p150), var(--p050));
-  border: 2px dashed var(--p300);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-align: center;
-  padding: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(59, 7, 100, 0.28);
+}
+.pf-photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
 }
 .pf-photo-slot__icon { font-size: 48px; }
 .pf-photo-slot__label {
@@ -4468,11 +4468,13 @@ html.dark .pf-hero { background: var(--n900); }
 .pf-polaroid__photo {
   height: 140px;
   border-radius: 3px;
-  background: linear-gradient(160deg, var(--p400), var(--p500));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
+  overflow: hidden;
+}
+.pf-polaroid__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .pf-polaroid__caption {
   font-family: "IBM Plex Mono", monospace;
@@ -4949,7 +4951,10 @@ html.dark .pf-reassure strong { color: #fff; }
 
 @media (max-width: 900px) {
   .pf-hero-inner { grid-template-columns: 1fr; padding: 28px 20px 44px; }
-  .pf-photo-cell { display: none; }
+  .pf-photo-cell { height: 360px; max-width: 420px; margin: 0 auto; }
+  .pf-photo-slot { height: 360px; }
+  .pf-polaroid { width: 150px; top: 24px; right: -8px; }
+  .pf-polaroid__photo { height: 108px; }
   .pf-stats-inner { grid-template-columns: repeat(2, 1fr); }
   .pf-rail-head { flex-direction: column; align-items: flex-start; }
   .pf-course-cards { grid-template-columns: 1fr; padding-left: 20px; padding-right: 20px; }
