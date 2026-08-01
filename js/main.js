@@ -1261,15 +1261,15 @@ function isTooFast(formStartTime) {
       warned = true;
       console.log(
         "%c\u26A0\uFE0F STOP!",
-        "color:#0866ff;font-size:48px;font-weight:900;"
+        "color:#7a4fe0;font-size:48px;font-weight:900;"
       );
       console.log(
         "%cThis is a browser feature for developers. Do not paste or run any code here — it could compromise your account or data.",
-        "color:#052b86;font-size:16px;"
+        "color:#3b0764;font-size:16px;"
       );
       console.log(
         "%cVisionX Coders | Islamabad, Pakistan | iumer633@gmail.com",
-        "color:#052b86;font-size:12px;"
+        "color:#3b0764;font-size:12px;"
       );
     }
   }
