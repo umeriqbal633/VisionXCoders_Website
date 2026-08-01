@@ -1,6 +1,6 @@
 const ALLOWED_PROGRAMS = [
-  "AI Explorers (Ages 7-10)",
-  "Code Champions (Ages 11-14)",
+  "Junior Creator (Ages 7-10)",
+  "Tech Builder (Ages 11-14)",
   "Not sure yet",
 ];
 

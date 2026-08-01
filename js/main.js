@@ -473,6 +473,100 @@ function initBlogFilters() {
 }
 
 // ─────────────────────────────────────────────────────────────
+// HOMEPAGE 6-MONTH CURRICULUM RAIL
+// Tab-switching curved path visualization. Node positions are
+// sampled along a cubic bezier so the dots/labels land exactly
+// on the SVG path at any container width.
+// ─────────────────────────────────────────────────────────────
+function initSixMonthRail() {
+  var wrap = document.querySelector("[data-rail]");
+  var tabsWrap = document.querySelector("[data-rail-tabs]");
+  var kicker = document.querySelector("[data-rail-kicker]");
+  if (!wrap || !tabsWrap) return;
+
+  var CURRICULUM = {
+    junior: {
+      label: "JUNIOR CREATOR, 6 MONTHS",
+      months: [
+        "Logic &amp; Block Coding",
+        "Games in Scratch &amp; Arcade",
+        "Python Foundations",
+        "Functions, Data &amp; Games",
+        "Real-World Python &amp; Robotics",
+        "AI, Prompts &amp; Demo Day"
+      ]
+    },
+    senior: {
+      label: "TECH BUILDER, 6 MONTHS",
+      months: [
+        "Professional Python",
+        "Object-Oriented Programming",
+        "Intermediate Game Development",
+        "Artificial Intelligence",
+        "Automation &amp; Productivity",
+        "Capstone &amp; Tech Expo"
+      ]
+    }
+  };
+
+  var P = [[70, 82], [410, 82], [750, 26], [1090, 26]];
+
+  function cubic(t) {
+    var u = 1 - t;
+    var a = u * u * u, b = 3 * u * u * t, c = 3 * u * t * t, d = t * t * t;
+    return {
+      x: a * P[0][0] + b * P[1][0] + c * P[2][0] + d * P[3][0],
+      y: a * P[0][1] + b * P[1][1] + c * P[2][1] + d * P[3][1]
+    };
+  }
+
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+
+  function render(track) {
+    var data = CURRICULUM[track];
+    var months = data.months;
+    var lastI = months.length - 1;
+
+    if (kicker) kicker.textContent = "THE PATH TO DEMO DAY — " + data.label;
+
+    var dotsHtml = "";
+    var labelsHtml = "";
+
+    months.forEach(function (title, i) {
+      var t = i / lastI;
+      var p = cubic(t);
+      var isLast = i === lastI;
+      var r = isLast ? 10 : 6.5;
+      var pct = ((p.x / 1184) * 100).toFixed(4) + "%";
+      var fill = isLast ? "#7A4FE0" : "#2E6BFF";
+      var numColor = isLast ? "#5B34B8" : "#59688A";
+      var num = isLast ? "DEMO DAY" : "MONTH " + pad(i + 1);
+
+      dotsHtml +=
+        '<span class="pf-rail-dot" style="left:calc(' + pct + " - " + r + "px); top:" + (p.y - r) + "px; width:" + (r * 2) + "px; height:" + (r * 2) + "px; background:" + fill + ';"></span>';
+      labelsHtml +=
+        '<div class="pf-rail-label" style="left:calc(' + pct + " - 56px); top:" + (p.y + 22) + 'px;"><span class="pf-rail-label__num" style="color:' + numColor + ';">' + num + '</span><span class="pf-rail-label__title">' + title + "</span></div>";
+    });
+
+    wrap.innerHTML =
+      '<svg viewBox="0 0 1184 176" preserveAspectRatio="none">' +
+      '<path d="M 70 82 C 410 82 750 26 1090 26" fill="none" stroke="#DBCDF7" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>' +
+      "</svg>" + dotsHtml + labelsHtml;
+  }
+
+  tabsWrap.addEventListener("click", function (e) {
+    var btn = e.target.closest(".pf-tab");
+    if (!btn) return;
+    var tabs = tabsWrap.querySelectorAll(".pf-tab");
+    for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove("is-active");
+    btn.classList.add("is-active");
+    render(btn.getAttribute("data-rail-track"));
+  });
+
+  render("junior");
+}
+
+// ─────────────────────────────────────────────────────────────
 // HERO PARTICLE BACKGROUND
 // Canvas API — no libraries. 60 glowing dots in blue shades,
 // connecting lines, mouse repulsion, text-zone avoidance.
@@ -834,6 +928,7 @@ function initSite() {
   initFaqAccordion();
   initBlogFilters();
   initHeroParticles();
+  initSixMonthRail();        // Homepage curriculum path visualization
   initCookieBanner();        // GDPR cookie consent
   initNewsletterSignup();    // Footer newsletter (/api/newsletter)
   initTrialBookingForm();    // Trial booking (/api/book-trial)

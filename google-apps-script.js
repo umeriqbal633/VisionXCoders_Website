@@ -125,7 +125,7 @@ function testSetup() {
         email:      "test@test.com",
         phone:      "+923001234567",
         age:        "9",
-        program:    "AI Explorers (Ages 7-10)",
+        program:    "Junior Creator (Ages 7-10)",
         timeslot:   "Weekdays (Mon-Fri, 1hr/day)",
         timestamp:  new Date().toLocaleString()
       })

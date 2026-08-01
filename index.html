@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -46,7 +46,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="VisionX Coders – AI & Coding for Kids | Ages 7-14">
-    <meta name="twitter:description" content="Live AI and coding classes for kids ages 7-14 in Islamabad, Pakistan. Flexible weekday or weekend sessions via Google Meet — PKR 5,000/month. Book a free trial today!">
+    <meta name="twitter:description" content="Live online AI and coding classes for kids ages 7-14. Small groups of five, five sessions a week, six-month courses ending in a real Demo Day or Tech Expo. Book a free trial today!">
     <meta name="twitter:image" content="https://visionxcoders.com/images/visionx-coders-logo.png">
 
     <!-- Schema.org JSON-LD -->
@@ -101,125 +101,89 @@
 
     <div id="site-header"></div>
 
-    <!-- HERO -->
-    <section class="hero">
-      <canvas id="hero-canvas" aria-hidden="true"></canvas>
-      <div class="hero-glow glow-1"></div>
-      <div class="hero-glow glow-2"></div>
-      <div class="hero-glow glow-3"></div>
-      <div class="hero-inner">
-        <div class="hero-left">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span> Live coding &amp; AI classes for ages 7–14
+    <!-- HERO (Playful design system) -->
+    <section class="pf-hero">
+      <div class="pf-scallop"></div>
+
+      <div class="pf-blob" aria-hidden="true"></div>
+      <div class="pf-blob-soft" aria-hidden="true"></div>
+
+      <span class="pf-confetti pf-confetti--sparkle" aria-hidden="true" style="top:26px; right:300px; width:14px; height:14px; background:#B99BF0;"></span>
+      <span class="pf-confetti pf-confetti--dot" aria-hidden="true" style="top:58px; right:128px; width:10px; height:10px; background:#2E6BFF; opacity:.5;"></span>
+      <span class="pf-confetti pf-confetti--dot" aria-hidden="true" style="top:96px; right:418px; width:11px; height:11px; background:#9A76EB;"></span>
+      <span class="pf-confetti pf-confetti--square" aria-hidden="true" style="top:40px; right:520px; width:9px; height:9px; background:#7A4FE0; opacity:.7; transform:rotate(24deg);"></span>
+      <span class="pf-confetti pf-confetti--dot" aria-hidden="true" style="bottom:46px; right:378px; width:10px; height:10px; background:#B99BF0;"></span>
+      <span class="pf-confetti pf-confetti--dot" aria-hidden="true" style="top:44px; left:42px; width:12px; height:12px; background:#B99BF0;"></span>
+      <span class="pf-confetti pf-confetti--dot" aria-hidden="true" style="top:30px; left:258px; width:9px; height:9px; background:#2E6BFF; opacity:.6;"></span>
+
+      <div class="pf-hero-inner">
+        <div class="pf-photo-cell">
+          <div class="pf-photo-slot">
+            <span class="pf-photo-slot__icon">🧑‍💻</span>
+            <span class="pf-photo-slot__label">Student photo coming soon</span>
           </div>
-          <h1>
-            Curious Kids Become<br />
-            <span class="accent">Confident Coders</span>
-          </h1>
-          <p class="hero-sub">
-            Live 1-on-1 online classes for ages <strong>7–14</strong> — from
-            block coding to Python, AI, robotics & more. Taught by
-            <strong>VisionX Intelligence</strong> engineers.
-          </p>
-          <div class="hero-btns">
-            <a href="#program-finder" class="btn-primary">Find their program <span aria-hidden="true">→</span></a>
-            <a href="contact.html#trial" class="btn-secondary"
-              >Book a free trial</a
-            >
-          </div>
-          <div class="hero-proof" aria-label="VisionX Coders highlights">
-            <span><b>Live</b> expert-led classes</span>
-            <span><b>Small</b> supportive groups</span>
-            <span><b>Real</b> projects every term</span>
+          <div class="pf-polaroid">
+            <div class="pf-polaroid__photo">🎉</div>
+            <div class="pf-polaroid__caption">DEMO DAY &middot; MONTH 06</div>
           </div>
         </div>
-        <div class="hero-right">
-          <div class="hero-card">
-            <div class="hero-avatar-row">
-              <div class="avatar av1">AZ</div>
-              <div class="avatar av2">MR</div>
-              <div class="avatar av3">SK</div>
-              <div class="avatar av4">LH</div>
-              <div class="avatar av5">+</div>
-            </div>
-            <div class="hero-stat-text">75+ Young Innovators</div>
-            <div class="hero-stat-sub">
-              learning AI & coding with us right now
-            </div>
-            <div class="hero-stat-mini-row">
-              <div class="hero-stat-mini hero-stat-mini--a">
-                <div class="hero-stat-mini__value">98%</div>
-                <div class="hero-stat-mini__label">Parent satisfaction</div>
-              </div>
-              <div class="hero-stat-mini hero-stat-mini--b">
-                <div class="hero-stat-mini__value">15+</div>
-                <div class="hero-stat-mini__label">Countries reached</div>
-              </div>
-            </div>
-          </div>
-          <div class="floating-tags right">
-            <div class="float-tag">
-              <span class="float-icon">🤖</span>
-              <div>
-                <div class="float-label">AI Project Built!</div>
-                <div class="float-sub">by Zara, age 11</div>
-              </div>
-            </div>
-            <div class="float-tag">
-              <span class="float-icon">🐍</span>
-              <div>
-                <div class="float-label">Python Unlocked</div>
-                <div class="float-sub">by Ahmed, age 13</div>
-              </div>
-            </div>
-          </div>
-          <div class="floating-tags left">
-            <div class="float-tag">
-              <span class="float-icon">🎮</span>
-              <div>
-                <div class="float-label">Game Published!</div>
-                <div class="float-sub">by Sara, age 9</div>
-              </div>
+
+        <div class="pf-hero-content">
+          <span class="pf-kicker">Junior Creator &amp; Tech Builder Courses</span>
+          <h1 class="pf-h1">Live online coding classes where your child builds a real AI app in six months.</h1>
+          <p class="pf-lede">
+            Five live sessions a week, one hour each, never more than five
+            children in the class. They start with logic and Scratch games,
+            move into Python, wire up micro:bit robots, and finish by
+            presenting a working AI app to you live.
+          </p>
+          <div class="pf-hero-cta-row">
+            <a href="contact.html#trial" class="pf-pill-btn">Book Free Trial Class</a>
+            <div class="pf-reassure">
+              <strong>3 days free &middot; no card</strong>
+              <span>PKT / GMT / ET / AEST SLOTS</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STATS BAR -->
-    <div class="stats-bar">
-      <div class="stats-inner">
-        <div class="stat-item">
-          <h3 class="count-up" data-target="500">0</h3>
-          <p>Students Enrolled</p>
+    <!-- STATS STRIP -->
+    <div class="pf-stats">
+      <div class="pf-stats-inner">
+        <div class="pf-stat">
+          <span class="pf-stat__num count-up" data-target="500">0</span>
+          <span class="pf-stat__label">students enrolled</span>
         </div>
-        <div class="stat-item">
-          <h3 class="count-up" data-target="15">0</h3>
-          <p>Countries Reached</p>
+        <div class="pf-stat">
+          <span class="pf-stat__num count-up" data-target="15">0</span>
+          <span class="pf-stat__label">countries reached</span>
         </div>
-        <div class="stat-item">
-          <h3 class="count-up" data-target="10000">0</h3>
-          <p>Classes Completed</p>
+        <div class="pf-stat">
+          <span class="pf-stat__num">5</span>
+          <span class="pf-stat__label">children per class, maximum</span>
         </div>
-        <div class="stat-item">
-          <h3 class="count-up" data-target="98">0</h3>
-          <p>% Parent Satisfaction</p>
+        <div class="pf-stat">
+          <span class="pf-stat__num count-up" data-target="98">0</span>
+          <span class="pf-stat__label">% parent satisfaction</span>
         </div>
       </div>
     </div>
 
-    <section id="program-finder" class="program-finder" aria-labelledby="program-finder-title">
-      <div class="section-inner finder-inner">
-        <div>
-          <div class="section-label">Start with their age</div>
-          <h2 id="program-finder-title" class="finder-title">A learning path that grows with them.</h2>
-          <p>Choose an age group to see the right starting point. Not sure yet? A free trial helps us recommend the best fit.</p>
+    <!-- 6-MONTH RAIL -->
+    <section id="program-finder" class="pf-rail-section" aria-labelledby="rail-title">
+      <div class="pf-rail-inner">
+        <div class="pf-rail-head">
+          <div>
+            <span class="pf-rail-kicker" data-rail-kicker>THE PATH TO DEMO DAY &mdash; JUNIOR CREATOR, 6 MONTHS</span>
+            <h2 id="rail-title" class="pf-rail-title">Every month ends with something they can show you.</h2>
+          </div>
+          <div class="pf-tabs" data-rail-tabs>
+            <button type="button" class="pf-tab is-active" data-rail-track="junior">Junior Creator 7&ndash;10</button>
+            <button type="button" class="pf-tab" data-rail-track="senior">Tech Builder 11&ndash;14</button>
+          </div>
         </div>
-        <div class="finder-options">
-          <a href="courses.html#ai-explorers" class="finder-option finder-option--cyan"><span>7–10</span><small>First steps &amp; exploring</small></a>
-          <a href="courses.html#code-champions" class="finder-option finder-option--violet"><span>11–14</span><small>Go further</small></a>
-          <a href="contact.html#trial" class="finder-help">Help me choose <span aria-hidden="true">→</span></a>
-        </div>
+        <div class="pf-rail" data-rail></div>
       </div>
     </section>
 
@@ -241,31 +205,30 @@
             <div class="prog-card-header">
               <span class="popular-badge">⭐ Most Popular</span>
               <span class="prog-level level-beginner">Beginner</span>
-              <span class="prog-icon">🧠</span>
-              <h3>AI Explorers</h3>
+              <span class="prog-icon">🧩</span>
+              <h3>Junior Creator</h3>
               <div class="prog-age">Ages 7 – 10 years</div>
               <p class="prog-desc">
-                The perfect starting point into tech. Kids build a strong
-                foundation through block-based coding, logic games, and their
-                first steps into Python and AI concepts — no experience
-                needed!
+                Starts with logic and block coding, ends with a working AI
+                app. No experience needed — six months gives a younger child
+                time to build the thinking properly.
               </p>
               <div class="prog-meta">
-                <div class="meta-item">📅 6-Month Program</div>
-                <div class="meta-item">🗓️ Weekdays or Weekends</div>
-                <div class="meta-item">👤 1-on-1 live</div>
+                <div class="meta-item">📅 6-Month Course</div>
+                <div class="meta-item">🗓️ 5 Live Sessions / Week</div>
+                <div class="meta-item">👤 Max 5 per class</div>
               </div>
             </div>
             <div class="prog-card-body">
               <div class="skills-list">
-                <span class="skill-chip">Scratch Coding</span>
-                <span class="skill-chip">Logic &amp; Problem Solving</span>
-                <span class="skill-chip">Intro to Python</span>
-                <span class="skill-chip">Creative Game Design</span>
+                <span class="skill-chip">Logic &amp; Block Coding</span>
+                <span class="skill-chip">Scratch &amp; Arcade Games</span>
+                <span class="skill-chip">Python Foundations</span>
+                <span class="skill-chip">Robotics</span>
               </div>
               <div class="prog-card-actions">
-                <a href="contact.html#trial" class="prog-btn">Try a Free Class</a>
-                <a href="course-detail-ai-explorers.html" class="prog-btn-secondary">Learn More →</a>
+                <a href="contact.html#trial" class="prog-btn">Book a Junior Creator Trial</a>
+                <a href="course-detail-junior-creator.html" class="prog-btn-secondary">Learn More →</a>
               </div>
             </div>
           </div>
@@ -274,30 +237,29 @@
             <div class="prog-card-header">
               <span class="prog-level level-advanced">Advanced</span>
               <span class="prog-icon">⚡</span>
-              <h3>Code Champions</h3>
+              <h3>Tech Builder</h3>
               <div class="prog-age">Ages 11 – 14 years</div>
               <p class="prog-desc">
-                Advanced Python, AI, machine learning, and full-stack web dev.
-                This program prepares teens for real STEM careers and
-                competitions.
+                Turns a beginner programmer into someone who ships software:
+                real Python projects, object-oriented game development, AI
+                assistants, and automation tools they actually use.
               </p>
               <div class="prog-meta">
-                <div class="meta-item">📅 6-Month Program</div>
-                <div class="meta-item">🗓️ Weekdays or Weekends</div>
-                <div class="meta-item">👤 1-on-1 live</div>
+                <div class="meta-item">📅 6-Month Course</div>
+                <div class="meta-item">🗓️ 5 Live Sessions / Week</div>
+                <div class="meta-item">👤 Max 5 per class</div>
               </div>
             </div>
             <div class="prog-card-body">
               <div class="skills-list">
-                <span class="skill-chip">Advanced Python</span>
-                <span class="skill-chip">Machine Learning</span>
-                <span class="skill-chip">HTML/CSS/JS</span>
-                <span class="skill-chip">Robotics</span>
-                <span class="skill-chip">AI Projects</span>
+                <span class="skill-chip">Professional Python</span>
+                <span class="skill-chip">Object-Oriented Programming</span>
+                <span class="skill-chip">Artificial Intelligence</span>
+                <span class="skill-chip">Automation</span>
               </div>
               <div class="prog-card-actions">
-                <a href="contact.html#trial" class="prog-btn">Try a Free Class</a>
-                <a href="course-detail-code-champions.html" class="prog-btn-secondary">Learn More →</a>
+                <a href="contact.html#trial" class="prog-btn">Book a Tech Builder Trial</a>
+                <a href="course-detail-tech-builder.html" class="prog-btn-secondary">Learn More →</a>
               </div>
             </div>
           </div>
@@ -494,8 +456,8 @@
             <div class="step-num">4</div>
             <h4>Start Learning!</h4>
             <p>
-              Your child joins live 1-on-1 sessions with their personal VisionX
-              engineer-tutor.
+              Your child joins live sessions in a small group of no more than
+              five, five times a week.
             </p>
           </div>
         </div>
@@ -511,7 +473,7 @@
       </p>
       <div class="cta-highlights">
         <div class="cta-hl">🎉 100% Free Trial</div>
-        <div class="cta-hl">🚀 Live 1-on-1 Class</div>
+        <div class="cta-hl">🚀 Max 5 Per Class</div>
         <div class="cta-hl">🏆 Expert AI Tutor</div>
         <div class="cta-hl">✅ No Commitment</div>
       </div>
@@ -519,124 +481,6 @@
         >Book My Child's Free Class →</a
       >
     </div>
-
-    <!-- TESTIMONIALS -->
-    <section class="testimonials-bg">
-      <div class="section-inner">
-        <div class="section-head center reveal">
-          <div class="section-label">Parent Reviews</div>
-          <h2 class="section-title">What Parents Are <span>Saying</span></h2>
-          <p class="section-sub">
-            Real stories from real families — this is why we do what we do every
-            single day.
-          </p>
-        </div>
-        <div class="testi-grid">
-          <div class="testi-card reveal reveal-stagger">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-text">
-              "My daughter Aisha went from total beginner to building her own
-              Python game in 6 months. The VisionX tutors are genuinely
-              brilliant — patient, encouraging, and clearly love what they do."
-            </p>
-            <div class="testi-author">
-              <div class="testi-avatar ta1">SA</div>
-              <div>
-                <div class="testi-name">Salman A. — Saudi Arabia</div>
-                <div class="testi-meta">
-                  Parent of Aisha, 10 yrs · AI Explorers
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card reveal reveal-stagger">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-text">
-              "Omar now talks about machine learning at the dinner table! I
-              never imagined a 12-year-old could grasp these concepts. VisionX Coders made it happen — and he loves every class."
-            </p>
-            <div class="testi-author">
-              <div class="testi-avatar ta2">ZK</div>
-              <div>
-                <div class="testi-name">Zara K. — United Kingdom</div>
-                <div class="testi-meta">
-                  Parent of Omar, 12 yrs · Code Champions
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card reveal reveal-stagger">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-text">
-              "We tried two other platforms before VisionX Coders. The
-              difference is night and day — real engineers teaching real skills.
-              Hana built and published her first app at age 9. Unbelievable!"
-            </p>
-            <div class="testi-author">
-              <div class="testi-avatar ta3">MH</div>
-              <div>
-                <div class="testi-name">Maryam H. — Canada</div>
-                <div class="testi-meta">
-                  Parent of Hana, 9 yrs · AI Explorers
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card reveal reveal-stagger">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-text">
-              "The progress tracking and monthly reports are fantastic — I
-              always know exactly where my son stands. His confidence has grown
-              enormously. This is the best investment we've made in his
-              education."
-            </p>
-            <div class="testi-author">
-              <div class="testi-avatar ta4">AR</div>
-              <div>
-                <div class="testi-name">Ahmed R. — Pakistan</div>
-                <div class="testi-meta">
-                  Parent of Bilal, 13 yrs · Code Champions
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card reveal reveal-stagger">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-text">
-              "My son Tariq was shy and didn't talk much. After just 3 months
-              with VisionX Coders, he's presenting his AI projects to the whole
-              family and begging for extra classes. Truly life-changing."
-            </p>
-            <div class="testi-author">
-              <div class="testi-avatar ta5">FN</div>
-              <div>
-                <div class="testi-name">Fatima N. — UAE</div>
-                <div class="testi-meta">
-                  Parent of Tariq, 11 yrs · Code Champions
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card reveal reveal-stagger">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-text">
-              "What sets VisionX apart is the AI-first approach. My daughters
-              are actually learning real machine learning — the same stuff their
-              engineer parents work with. It's extraordinary for their age."
-            </p>
-            <div class="testi-author">
-              <div class="testi-avatar ta6">IB</div>
-              <div>
-                <div class="testi-name">Ibrahim B. — USA</div>
-                <div class="testi-meta">
-                  Parent of Layla & Nour · AI Explorers
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <div id="site-footer"></div>
     <script src="js/main.js"></script>
