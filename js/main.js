@@ -531,6 +531,7 @@ function initSixMonthRail() {
 
     var dotsHtml = "";
     var labelsHtml = "";
+    var listHtml = "";
 
     months.forEach(function (title, i) {
       var t = i / lastI;
@@ -538,7 +539,7 @@ function initSixMonthRail() {
       var isLast = i === lastI;
       var r = isLast ? 10 : 6.5;
       var pct = ((p.x / 1184) * 100).toFixed(4) + "%";
-      var fill = isLast ? "#7A4FE0" : "#2E6BFF";
+      var fill = isLast ? "#7A4FE0" : "#FFB20A";
       var numColor = isLast ? "#5B34B8" : "#59688A";
       var num = isLast ? "DEMO DAY" : "MONTH " + pad(i + 1);
 
@@ -546,12 +547,17 @@ function initSixMonthRail() {
         '<span class="pf-rail-dot" style="left:calc(' + pct + " - " + r + "px); top:" + (p.y - r) + "px; width:" + (r * 2) + "px; height:" + (r * 2) + "px; background:" + fill + ';"></span>';
       labelsHtml +=
         '<div class="pf-rail-label" style="left:calc(' + pct + " - 56px); top:" + (p.y + 22) + 'px;"><span class="pf-rail-label__num" style="color:' + numColor + ';">' + num + '</span><span class="pf-rail-label__title">' + title + "</span></div>";
+      listHtml +=
+        '<div class="pf-rail-list-item"><span class="pf-rail-list-dot" style="background:' + fill + ';"></span><div class="pf-rail-list-body"><span class="pf-rail-list-num" style="color:' + numColor + ';">' + num + '</span><span class="pf-rail-list-title">' + title + "</span></div></div>";
     });
 
     wrap.innerHTML =
+      '<div class="pf-rail-curve">' +
       '<svg viewBox="0 0 1184 176" preserveAspectRatio="none">' +
       '<path d="M 70 82 C 410 82 750 26 1090 26" fill="none" stroke="#DBCDF7" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>' +
-      "</svg>" + dotsHtml + labelsHtml;
+      "</svg>" + dotsHtml + labelsHtml +
+      "</div>" +
+      '<div class="pf-rail-list">' + listHtml + "</div>";
   }
 
   tabsWrap.addEventListener("click", function (e) {

@@ -4341,9 +4341,11 @@ nav {
   .topbar-right { display: none; }
   .topbar-left { justify-content: center; width: 100%; }
   .topbar-left a { display: none; }
-  .nav-inner { height: 68px; padding: 0 18px; }
-  .brand-logo-image { width: 38px; height: 38px; }
-  .logo-text { font-size: 16px; }
+  .nav-inner { height: 68px; padding: 0 14px; }
+  .brand-logo-image { width: 34px; height: 34px; }
+  .logo-text { font-size: 14.5px; white-space: nowrap; }
+  .logo-subtitle { font-size: 8.5px; letter-spacing: 0.1em; }
+  .logo { gap: 8px; min-width: 0; }
   .hero { padding: 74px 20px 84px; }
   .hero h1 {
     font-size: clamp(26px, 8.5vw, 40px) !important;
@@ -4663,12 +4665,15 @@ html.dark .pf-reassure strong { color: #fff; }
   color: #ffffff;
 }
 .pf-rail {
+  width: 100%;
+  margin-top: 6px;
+}
+.pf-rail-curve {
   position: relative;
   width: 100%;
   height: 200px;
-  margin-top: 6px;
 }
-.pf-rail svg { position: absolute; inset: 0; width: 100%; height: 176px; }
+.pf-rail-curve svg { position: absolute; inset: 0; width: 100%; height: 176px; }
 .pf-rail-dot {
   position: absolute;
   border-radius: 999px;
@@ -4680,6 +4685,52 @@ html.dark .pf-reassure strong { color: #fff; }
   display: flex;
   flex-direction: column;
   gap: 3px;
+}
+.pf-rail-list { display: none; }
+.pf-rail-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 0 0 22px 5px;
+  position: relative;
+}
+.pf-rail-list-item::before {
+  content: "";
+  position: absolute;
+  left: 10.5px;
+  top: 20px;
+  bottom: -2px;
+  width: 2px;
+  background: var(--line-purple);
+}
+.pf-rail-list-item:last-child::before { display: none; }
+.pf-rail-list-item:last-child { padding-bottom: 0; }
+.pf-rail-list-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 3px solid var(--card);
+  box-shadow: 0 0 0 1px var(--line-purple);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.pf-rail-list-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pf-rail-list-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+}
+.pf-rail-list-title {
+  font-family: "Archivo", sans-serif;
+  font-stretch: 108%;
+  font-weight: 700;
+  font-size: 14.5px;
+  line-height: 1.25;
+  color: var(--heading);
 }
 .pf-rail-label__num {
   font-family: "IBM Plex Mono", monospace;
@@ -4964,6 +5015,8 @@ html.dark .pf-reassure strong { color: #fff; }
   .pf-polaroid__photo { height: 108px; }
   .pf-stats-inner { grid-template-columns: repeat(2, 1fr); }
   .pf-rail-head { flex-direction: column; align-items: flex-start; }
+  .pf-rail-curve { display: none; }
+  .pf-rail-list { display: block; }
   .pf-course-cards { grid-template-columns: 1fr; padding-left: 20px; padding-right: 20px; }
   .pf-cycle-grid { grid-template-columns: 1fr 1fr; }
   .pf-cycle-section, .pf-band-section, .pf-courses-hero-inner { padding-left: 20px; padding-right: 20px; }
