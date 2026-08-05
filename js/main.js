@@ -54,108 +54,6 @@ function initThemeToggle() {
   });
 }
 
-function initCustomCursor() {
-  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-  if (!finePointer.matches) {
-    return;
-  }
-
-  document.documentElement.classList.add("has-custom-cursor");
-
-  const cursor = document.createElement("div");
-  cursor.className = "vx-cursor";
-  cursor.setAttribute("aria-hidden", "true");
-
-  const trail = document.createElement("div");
-  trail.className = "vx-cursor-trail";
-  trail.setAttribute("aria-hidden", "true");
-
-  document.body.append(cursor, trail);
-
-  const interactiveSelector = [
-    "a",
-    "button",
-    ".btn-primary",
-    ".btn-secondary",
-    ".hamburger",
-    ".theme-toggle",
-    ".filter-btn",
-    ".nav-cta",
-    ".blog-tab",
-    ".accordion-trigger",
-    "[role='button']",
-    "input[type='submit']",
-    "input[type='button']",
-    "label[for]",
-    ".socials a",
-    ".footer-socials a",
-  ].join(", ");
-
-  let isVisible = false;
-
-  const setPosition = (x, y) => {
-    const value = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
-    cursor.style.transform = value;
-    trail.style.transform = value;
-  };
-
-  const show = () => {
-    if (isVisible) {
-      return;
-    }
-    isVisible = true;
-    cursor.classList.add("is-visible");
-    trail.classList.add("is-visible");
-  };
-
-  const hide = () => {
-    isVisible = false;
-    cursor.classList.remove("is-visible", "is-hover", "is-click");
-    trail.classList.remove("is-visible", "is-hover");
-  };
-
-  document.addEventListener("mousemove", (event) => {
-    show();
-    setPosition(event.clientX, event.clientY);
-  });
-
-  document.addEventListener("mouseover", (event) => {
-    const isInteractive = Boolean(event.target.closest(interactiveSelector));
-    cursor.classList.toggle("is-hover", isInteractive);
-    trail.classList.toggle("is-hover", isInteractive);
-  });
-
-  document.addEventListener("mousedown", (event) => {
-    cursor.classList.add("is-click");
-
-    const ripple = document.createElement("div");
-    ripple.className = "vx-cursor-ripple";
-    ripple.setAttribute("aria-hidden", "true");
-    ripple.style.left = `${event.clientX}px`;
-    ripple.style.top = `${event.clientY}px`;
-    document.body.appendChild(ripple);
-
-    ripple.addEventListener("animationend", () => {
-      ripple.remove();
-    });
-  });
-
-  document.addEventListener("mouseup", () => {
-    cursor.classList.remove("is-click");
-  });
-
-  document.addEventListener("mouseleave", hide);
-
-  finePointer.addEventListener("change", (event) => {
-    if (!event.matches) {
-      hide();
-      document.documentElement.classList.remove("has-custom-cursor");
-      cursor.remove();
-      trail.remove();
-    }
-  });
-}
-
 async function injectPartial(targetSelector, url) {
   const target = document.querySelector(targetSelector);
   if (!target) {
@@ -927,7 +825,6 @@ function initSite() {
     });
 
   initThemeToggle();
-  initCustomCursor();
   initCourseFilters();
   initCourseAccordion();
   initContactForm();
