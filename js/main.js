@@ -1172,7 +1172,7 @@ function isTooFast(formStartTime) {
         "color:#3b0764;font-size:16px;"
       );
       console.log(
-        "%cVisionX Coders | Islamabad, Pakistan | iumer633@gmail.com",
+        "%cVisionX Coders | Islamabad, Pakistan | visionxcoders@gmail.com",
         "color:#3b0764;font-size:12px;"
       );
     }
@@ -1337,12 +1337,12 @@ function initContactFormSheets() {
         showMsg(msgBox, "success", "✅ Thank you " + data.name + "! Your message has been received. We will reply to " + data.email + " within 24 hours.");
         form.reset();
       } else {
-        showMsg(msgBox, "error", (result.json && result.json.message) || "Could not send message. Please email us directly at iumer633@gmail.com");
+        showMsg(msgBox, "error", (result.json && result.json.message) || "Could not send message. Please email us directly at visionxcoders@gmail.com");
       }
     })
     .catch(function() {
       setSubmitState(submitBtn, false);
-      showMsg(msgBox, "error", "Could not send message. Please email us directly at iumer633@gmail.com");
+      showMsg(msgBox, "error", "Could not send message. Please email us directly at visionxcoders@gmail.com");
     });
   });
 }

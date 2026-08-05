@@ -40,7 +40,7 @@ module.exports = async (req, res) => {
     await submitToSheet("contact-inquiry", data);
   } catch (err) {
     console.error("[contact] Sheets append failed:", err);
-    res.status(500).json({ status: "error", message: "Could not send your message. Please email us directly at iumer633@gmail.com." });
+    res.status(500).json({ status: "error", message: "Could not send your message. Please email us directly at visionxcoders@gmail.com." });
     return;
   }
 
