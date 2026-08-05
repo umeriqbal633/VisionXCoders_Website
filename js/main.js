@@ -939,6 +939,7 @@ function initSite() {
   initNewsletterSignup();    // Footer newsletter (/api/newsletter)
   initTrialBookingForm();    // Trial booking (/api/book-trial)
   initContactFormSheets();   // Contact form (/api/contact)
+  initTestimonialForm();     // Parent review submission (/api/testimonial)
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -1449,6 +1450,110 @@ function initContactFormSheets() {
   });
 }
 
+// ── Testimonial Submission Form → /api/testimonial ─────────────
+function initTestimonialForm() {
+  var form      = document.querySelector("[data-testimonial-form]");
+  var msgBox    = form ? form.querySelector("[data-form-message]") : null;
+  var submitBtn = form ? form.querySelector("[type='submit']") : null;
+
+  if (!form) return;
+
+  // Star rating widget
+  var ratingWrap  = form.querySelector("[data-star-rating]");
+  var ratingInput = ratingWrap ? ratingWrap.querySelector('[name="rating"]') : null;
+  var stars       = ratingWrap ? Array.from(ratingWrap.querySelectorAll(".star-rating__star")) : [];
+
+  function paintStars(value) {
+    stars.forEach(function(star) {
+      var starValue = Number(star.getAttribute("data-value"));
+      star.classList.toggle("is-active", starValue <= value);
+    });
+  }
+
+  stars.forEach(function(star) {
+    star.addEventListener("click", function() {
+      var value = star.getAttribute("data-value");
+      if (ratingInput) ratingInput.value = value;
+      paintStars(Number(value));
+    });
+    star.addEventListener("mouseenter", function() {
+      paintStars(Number(star.getAttribute("data-value")));
+    });
+  });
+  if (ratingWrap) {
+    ratingWrap.addEventListener("mouseleave", function() {
+      paintStars(ratingInput ? Number(ratingInput.value || 0) : 0);
+    });
+  }
+
+  var formOpenTime = Date.now();
+  var timeInput = form.querySelector('[name="form_time"]');
+  if (timeInput) timeInput.value = formOpenTime;
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // ── Security ───────────────────────────────────────────────
+    if (isHoneypotTripped(form)) return;
+    if (isTooFast(formOpenTime)) {
+      showMsg(msgBox, "error", "Please take a moment before submitting.");
+      return;
+    }
+    var rl = RateLimiter.check("testimonial-form", 3, 60 * 60 * 1000);
+    if (rl.blocked) {
+      showMsg(msgBox, "error", "Too many submissions. Try again in " + rl.waitSeconds + " seconds.");
+      return;
+    }
+
+    if (!ratingInput || !ratingInput.value) {
+      showMsg(msgBox, "error", "Please choose a star rating.");
+      return;
+    }
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    var nameField     = form.querySelector('[name="parentName"]');
+    var cityField      = form.querySelector('[name="city"]');
+    var feedbackField  = form.querySelector('[name="feedback"]');
+
+    var data = {
+      type:       "testimonial-review",
+      parentName: sanitizeInput(nameField    ? nameField.value    : ""),
+      city:       sanitizeInput(cityField    ? cityField.value    : ""),
+      feedback:   sanitizeInput(feedbackField ? feedbackField.value : ""),
+      rating:     Number(ratingInput.value),
+      timestamp:  new Date().toLocaleString("en-PK", {timeZone:"Asia/Karachi"})
+    };
+
+    setSubmitState(submitBtn, true);
+    showMsg(msgBox, "info", "Submitting your review...");
+
+    fetch("/api/testimonial", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body:   JSON.stringify(data)
+    })
+    .then(function(response) {
+      return response.json().then(function(json) {
+        return { ok: response.ok, json: json };
+      });
+    })
+    .then(function(result) {
+      setSubmitState(submitBtn, false);
+      if (result.ok) {
+        showMsg(msgBox, "success", "✅ Thank you " + data.parentName + "! Your review has been submitted and will appear on this page once our team reviews it.");
+        form.reset();
+        paintStars(0);
+      } else {
+        showMsg(msgBox, "error", (result.json && result.json.message) || "Could not submit your review. Please try again.");
+      }
+    })
+    .catch(function() {
+      setSubmitState(submitBtn, false);
+      showMsg(msgBox, "error", "Could not submit your review. Please try again.");
+    });
+  });
+}
+
 // ── Shared helpers ─────────────────────────────────────────────
 function showMsg(el, type, text) {
   if (!el) return;
@@ -1460,8 +1565,9 @@ function showMsg(el, type, text) {
 
 function setSubmitState(btn, loading) {
   if (!btn) return;
-  btn.disabled    = loading;
-  btn.textContent = loading ? "Submitting..." : btn.getAttribute("data-original-text") || "Book Free Trial";
-  if (!btn.getAttribute("data-original-text") && !loading)
+  if (!btn.getAttribute("data-original-text")) {
     btn.setAttribute("data-original-text", btn.textContent);
+  }
+  btn.disabled    = loading;
+  btn.textContent = loading ? "Submitting..." : btn.getAttribute("data-original-text");
 }

@@ -91,6 +91,20 @@ function validateNewsletter(body) {
   return { honeypot: false, errors };
 }
 
+function validateTestimonial(body) {
+  const { honeypot, errors } = validateCommon(body);
+  if (honeypot) return { honeypot: true, errors: [] };
+
+  if (!isNonEmptyString(body.parentName, 200)) errors.push("Your name is required.");
+  if (!isNonEmptyString(body.city, 100)) errors.push("Your city is required.");
+  if (!isNonEmptyString(body.feedback, 2000)) errors.push("Your feedback is required.");
+
+  const rating = Number(body.rating);
+  if (!Number.isInteger(rating) || rating < 1 || rating > 5) errors.push("A star rating from 1 to 5 is required.");
+
+  return { honeypot: false, errors };
+}
+
 function checkOrigin(req) {
   const allowed = (process.env.ALLOWED_ORIGIN || "")
     .split(",")
@@ -110,5 +124,6 @@ module.exports = {
   validateTrialBooking,
   validateContact,
   validateNewsletter,
+  validateTestimonial,
   checkOrigin,
 };

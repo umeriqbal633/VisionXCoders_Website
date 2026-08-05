@@ -117,6 +117,32 @@ async function sendParentContactConfirmation(data) {
   });
 }
 
+async function sendOwnerTestimonialNotification(data) {
+  const resend = getClient();
+  const stars = "★".repeat(data.rating) + "☆".repeat(5 - data.rating);
+
+  const text = [
+    "NEW TESTIMONIAL SUBMISSION — VisionX Coders",
+    "",
+    `From    : ${data.parentName} (${data.city})`,
+    `Rating  : ${stars} (${data.rating}/5)`,
+    "",
+    "Feedback:",
+    data.feedback,
+    "",
+    `Submitted: ${data.timestamp}`,
+    "",
+    "Review it in the Testimonials sheet, then add it to testimonials.html if approved.",
+  ].join("\n");
+
+  await resend.emails.send({
+    from: fromAddress(),
+    to: ownerRecipients(),
+    subject: `New Testimonial (${data.rating}★) — ${data.parentName} | VisionX Coders`,
+    text,
+  });
+}
+
 async function sendNewsletterConfirmation(email) {
   const resend = getClient();
   await resend.emails.send({
@@ -132,5 +158,6 @@ module.exports = {
   sendParentBookingConfirmation,
   sendOwnerContactNotification,
   sendParentContactConfirmation,
+  sendOwnerTestimonialNotification,
   sendNewsletterConfirmation,
 };

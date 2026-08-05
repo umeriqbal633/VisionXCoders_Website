@@ -36,6 +36,10 @@ var CONTACT_HEADERS = [
 
 var NEWSLETTER_HEADERS = ["Timestamp", "Email"];
 
+var TESTIMONIAL_HEADERS = [
+  "Timestamp", "Parent Name", "City", "Rating", "Feedback", "Status"
+];
+
 function doPost(e) {
   try {
     var raw  = e.postData ? e.postData.contents : "{}";
@@ -73,6 +77,16 @@ function doPost(e) {
       newsletterSheet.appendRow([
         data.timestamp || new Date().toLocaleString(),
         data.email || ""
+      ]);
+    } else if (data.type === "testimonial-review") {
+      var testimonialSheet = getOrCreateSheet(ss, "Testimonials", TESTIMONIAL_HEADERS);
+      testimonialSheet.appendRow([
+        data.timestamp   || new Date().toLocaleString(),
+        data.parentName  || "",
+        data.city        || "",
+        data.rating      || "",
+        data.feedback    || "",
+        "Pending Review"
       ]);
     } else {
       return jsonResponse({ status: "error", message: "Unknown submission type" });
