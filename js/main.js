@@ -824,19 +824,32 @@ function initSite() {
       revealObserver.observe(element);
     });
 
-  initThemeToggle();
-  initCourseFilters();
-  initCourseAccordion();
-  initContactForm();
-  initFaqAccordion();
-  initBlogFilters();
-  initHeroParticles();
-  initSixMonthRail();        // Homepage curriculum path visualization
-  initCookieBanner();        // GDPR cookie consent
-  initNewsletterSignup();    // Footer newsletter (/api/newsletter)
-  initTrialBookingForm();    // Trial booking (/api/book-trial)
-  initContactFormSheets();   // Contact form (/api/contact)
-  initTestimonialForm();     // Parent review submission (/api/testimonial)
+  // Each widget initializes independently -- one throwing must not stop
+  // the rest (e.g. a canvas/animation bug on one page silently killing
+  // form submission handlers that get registered later in this list).
+  var widgetInits = [
+    initThemeToggle,
+    initCourseFilters,
+    initCourseAccordion,
+    initContactForm,
+    initFaqAccordion,
+    initBlogFilters,
+    initHeroParticles,
+    initSixMonthRail,        // Homepage curriculum path visualization
+    initCookieBanner,        // GDPR cookie consent
+    initNewsletterSignup,    // Footer newsletter (/api/newsletter)
+    initTrialBookingForm,    // Trial booking (/api/book-trial)
+    initContactFormSheets,   // Contact form (/api/contact)
+    initTestimonialForm,     // Parent review submission (/api/testimonial)
+  ];
+
+  widgetInits.forEach(function(init) {
+    try {
+      init();
+    } catch (error) {
+      console.error("[VisionX] " + init.name + " failed to initialize:", error);
+    }
+  });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
