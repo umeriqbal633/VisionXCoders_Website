@@ -1219,15 +1219,17 @@ function initTrialBookingForm() {
       showMsg(msgBox, "error", "Please slow down and try again.");
       return;
     }
-    var rl = RateLimiter.check("trial-booking", 3, 60 * 60 * 1000);
-    if (rl.blocked) {
-      showMsg(msgBox, "error", "Too many submissions. Wait " + rl.waitSeconds + "s.");
-      return;
-    }
 
     // ── Validate ───────────────────────────────────────────────
     if (!form.checkValidity()) {
       form.reportValidity();
+      return;
+    }
+
+    // Rate limit only counts attempts that actually pass validation
+    var rl = RateLimiter.check("trial-booking-v2", 3, 60 * 60 * 1000);
+    if (rl.blocked) {
+      showMsg(msgBox, "error", "Too many submissions. Wait " + rl.waitSeconds + "s.");
       return;
     }
 
@@ -1294,13 +1296,15 @@ function initContactFormSheets() {
       showMsg(msgBox, "error", "Please wait a moment before submitting.");
       return;
     }
-    var rl = RateLimiter.check("contact-form", 5, 60 * 60 * 1000);
+
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    // Rate limit only counts attempts that actually pass validation
+    var rl = RateLimiter.check("contact-form-v2", 5, 60 * 60 * 1000);
     if (rl.blocked) {
       showMsg(msgBox, "error", "Too many submissions. Try again in " + rl.waitSeconds + " seconds.");
       return;
     }
-
-    if (!form.checkValidity()) { form.reportValidity(); return; }
 
     var nameField    = form.querySelector('[name="name"], [name="fullName"], [name="parentName"]');
     var emailField   = form.querySelector('[name="email"]');
@@ -1396,17 +1400,19 @@ function initTestimonialForm() {
       showMsg(msgBox, "error", "Please take a moment before submitting.");
       return;
     }
-    var rl = RateLimiter.check("testimonial-form", 3, 60 * 60 * 1000);
-    if (rl.blocked) {
-      showMsg(msgBox, "error", "Too many submissions. Try again in " + rl.waitSeconds + " seconds.");
-      return;
-    }
 
     if (!ratingInput || !ratingInput.value) {
       showMsg(msgBox, "error", "Please choose a star rating.");
       return;
     }
     if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    // Rate limit only counts attempts that actually pass validation
+    var rl = RateLimiter.check("testimonial-form-v2", 3, 60 * 60 * 1000);
+    if (rl.blocked) {
+      showMsg(msgBox, "error", "Too many submissions. Try again in " + rl.waitSeconds + " seconds.");
+      return;
+    }
 
     var nameField     = form.querySelector('[name="parentName"]');
     var cityField      = form.querySelector('[name="city"]');
