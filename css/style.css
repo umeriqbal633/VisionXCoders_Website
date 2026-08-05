@@ -3272,7 +3272,6 @@ html.has-custom-cursor select {
     0 0 22px rgba(255, 201, 77, 0.45);
   transform: translate(-50%, -50%);
   transition:
-    transform 0.12s ease-out,
     width 0.25s ease,
     height 0.25s ease,
     background-color 0.25s ease,
