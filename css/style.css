@@ -2078,7 +2078,6 @@ section {
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   box-shadow: 0 14px 35px rgba(15, 23, 42, 0.04);
 }
-.team-flip-face--front,
 .team-flip-face--back {
   padding: 24px;
 }
@@ -2086,6 +2085,8 @@ section {
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 0;
+  overflow: hidden;
 }
 .team-flip-face--back {
   position: absolute;
@@ -2098,28 +2099,25 @@ section {
   justify-content: space-between;
   gap: 18px;
 }
-.team-avatar {
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  margin: 0 auto 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--violet), #ffc94d);
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: 26px;
-  font-weight: 900;
-  box-shadow: 0 12px 28px rgba(122, 79, 224, 0.22);
+.team-photo {
+  display: block;
+  width: 100%;
+  height: 200px;
   overflow: hidden;
   cursor: pointer;
+  flex-shrink: 0;
 }
-.team-avatar img {
+.team-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  display: block;
+}
+.team-flip-face-body {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .team-flip-face--front h3 {
   text-align: center;
